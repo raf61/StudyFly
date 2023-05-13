@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;700;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body{
+  min-height: 100vh;
+}
+
+#app{
+  font-family: 'Inter', sans-serif;
+}
+
+.break-word{
+  word-break:break-word;
+}
+
+.bounce-enter-active {
+    animation: bounce-in 0.2s;
+  }
+  .bounce-leave-active {
+    animation: bounce-in 0.1s reverse;
+  }
+  @keyframes bounce-in {
+    0% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(1.25);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .togglefade-enter-active,
+  .togglefade-leave-active {
+    transition: opacity 0.3s ease;
+  }
+  
+  .togglefade-enter-from,
+  .togglefade-leave-to {
+    opacity: 0;
+  }
+
+  .slideY-fade-enter-active {
+    transition: all 0.3s ease;
+  }
+  
+  .slideY-fade-leave-active {
+    transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+  }
+  
+  .slideY-fade-enter-from,
+  .slideY-fade-leave-to {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
