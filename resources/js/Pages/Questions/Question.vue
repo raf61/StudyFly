@@ -1,7 +1,7 @@
 <template>
+    <div>
     <Head>
         <title>  {{ question.title }}</title>
-
     </Head>
     <Navbar />
     <main class="w-full flex justify-center mt-10 pb-32">
@@ -106,7 +106,7 @@
 
         </div>
     </main>
-
+    </div>
 </template>
 
 <script>
@@ -124,7 +124,7 @@ import { ref, computed, watch, nextTick } from 'vue';
 import { useForm, usePage } from '@inertiajs/vue3';
 import escapeHtml from '../../helpers/escapeHtml.js'
 import dateFromNow from '../../helpers/dateFromNow.js'
-import { ArrowDownTrayIcon, CalculatorIcon, PlusIcon, PaperClipIcon, XMarkIcon } from '@heroicons/vue/20/solid';
+import { ArrowDownTrayIcon, CalculatorIcon } from '@heroicons/vue/20/solid';
 import { useToast } from 'vue-toastification';
 import { showAuthModal } from '../../helpers/authModal';
 import DomPurify from 'dompurify'
@@ -196,7 +196,9 @@ const submitAnswer = () => {
     answerForm.post(route('questionAnswer.store', question.value.id),{
         preserveScroll:true,
         onError(errors){
+            console.log(errors)
             for (let key in errors){
+                
                 toast.error(errors[key])
             }
         },

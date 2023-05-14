@@ -37,8 +37,8 @@ createInertiaApp({
     .use(plugin)
     .use(Toast, {
       transition:'Vue-Toastification__fade',
-      timeout:2000,
-      pauseOnHover:false
+      timeout:3000,
+      pauseOnHover:true
     })
     .use(vClickOutside)
     .component("Link", Link)
