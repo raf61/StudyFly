@@ -14,6 +14,18 @@ services:
     networks:
       - studyfly
 
+  db:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      SERVICE_TAGS: dev
+    volumes:
+      - ./docker-compose/mysql:/docker-entrypoint-initdb.d
+    networks:
+      - studyfly
+
   nginx:
     image: nginx:alpine
     restart: unless-stopped
